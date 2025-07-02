@@ -119,15 +119,15 @@ export default function Footer() {
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-start space-x-3">
                 <span className="text-[#BF9B30] mt-1">›</span>
-                <span>ABC XYZ</span>
+                <span>ABC </span>
               </li>
               <li className="flex items-start space-x-3">
                 <span className="text-[#BF9B30] mt-1">›</span>
-                <span>ABC XYZ</span>
+                <span>ABC </span>
               </li>
               <li className="flex items-start space-x-3">
                 <span className="text-[#BF9B30] mt-1">›</span>
-                <span>ABC XYZ</span>
+                <span>ABC </span>
               </li>
             </ul>
           </div>
