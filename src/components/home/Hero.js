@@ -14,7 +14,7 @@ export default function Hero() {
         transition={{ duration: 1.5 }}
       >
         <Image
-          src="/hero-bg.jpg"
+          src="/hero.jpg"
           alt="Freedom to Live Investment Background"
           fill
           className="object-cover"

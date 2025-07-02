@@ -175,7 +175,6 @@ export default function Services() {
               }}
               className="group relative backdrop-blur-xl rounded-2xl border border-[#BF9B30]/10 overflow-hidden hover:border-[#BF9B30]/30 transition-all duration-500"
             >
-              {/* Division Card Background */}
               <motion.div
                 className="absolute inset-0 opacity-50"
                 initial={{ opacity: 0 }}
