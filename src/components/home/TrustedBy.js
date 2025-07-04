@@ -43,16 +43,16 @@ export default function TrustedBy() {
             className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center"
           >
             {[
-              { name: "ABC Corp", image: "/images/abc-logo.png" },
-              { name: "XYZ Ltd", image: "/images/xyz-logo.png" },
-              { name: "DEF Inc", image: "/images/def-logo.png" },
-              { name: "GHI Group", image: "/images/ghi-logo.png" },
-              { name: "JKL Enterprises", image: "/images/jkl-logo.png" },
-              { name: "MNO Solutions", image: "/images/mno-logo.png" },
-              { name: "PQR Innovations", image: "/images/pqr-logo.png" },
-              { name: "STU Technologies", image: "/images/stu-logo.png" },
-              { name: "VWX Systems", image: "/images/vwx-logo.png" },
-              { name: "YZA Networks", image: "/images/yza-logo.png" },
+              { name: "ABC ", image: "/images/abc-logo.png" },
+              { name: "XYZ ", image: "/images/xyz-logo.png" },
+              { name: "DEF ", image: "/images/def-logo.png" },
+              { name: "GHI ", image: "/images/ghi-logo.png" },
+              { name: "JKL ", image: "/images/jkl-logo.png" },
+              { name: "MNO ", image: "/images/mno-logo.png" },
+              { name: "PQR ", image: "/images/pqr-logo.png" },
+              { name: "STU ", image: "/images/stu-logo.png" },
+              { name: "VWX ", image: "/images/vwx-logo.png" },
+              { name: "YZA ", image: "/images/yza-logo.png" },
             ].map((company, index) => (
               <motion.div
                 key={index}
