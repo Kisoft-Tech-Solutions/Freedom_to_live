@@ -10,10 +10,9 @@ export default function Header() {
   const navItems = [
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Business Divisions', href: '/business-divisions' },
     { name: 'Leadership', href: '/leadership' },
     { name: 'Investment', href: '/investment' },
-  ];
+  ];  
 
   return (
     <motion.header 
