@@ -1,21 +1,16 @@
-"use client";
 
-import Pricing from '@/components/home/Pricing';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
-import { motion } from 'framer-motion';
+import Pricing from '@/components/home/Pricing';
 
-export default function PricingPage() {
+export default function AboutPage() {
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="pt-20"
-    >
+    <main className="bg-[#0B1340] text-white min-h-screen">
       <Header />
-      <Pricing />
+      <div className="pt-20">
+        <About />
+      </div>
       <Footer />
-    </motion.main>
+    </main>
   );
 }

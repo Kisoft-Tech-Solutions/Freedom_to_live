@@ -1,21 +1,16 @@
-"use client";
 
-import Services from '@/components/home/Services';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
-import { motion } from 'framer-motion';
+import Services from '@/components/home/Services';
 
-export default function ServicesPage() {
+export default function AboutPage() {
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="pt-20"
-    >
+    <main className="bg-[#0B1340] text-white min-h-screen">
       <Header />
-      <Services />
+      <div className="pt-20">
+        <Services />
+      </div>
       <Footer />
-    </motion.main>
+    </main>
   );
 }

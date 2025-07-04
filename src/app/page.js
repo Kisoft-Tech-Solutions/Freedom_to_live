@@ -7,15 +7,19 @@ import Pricing from '@/components/home/Pricing';
 import Contact from '@/components/common/Contact';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
+import ResearchAndDevelopment from '@/components/home/ResearchAndDevelopment';
+import TrustedBy from '@/components/home/TrustedBy';
 
 export default function Home() {
   return (
     <main>
       <Header />
       <Hero />
-      <About />
+      <About /> 
       <Services />
       <Features />
+      <ResearchAndDevelopment />
+      <TrustedBy />
       <BoardMembers />
       <Pricing />
       <Contact />

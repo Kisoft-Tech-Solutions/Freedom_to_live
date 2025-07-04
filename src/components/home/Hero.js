@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import BlurText from '../style/BlurText';
 
 export default function Hero() {
   return (
@@ -36,25 +37,32 @@ export default function Hero() {
       {/* Updated Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <motion.div 
-          className="max-w-4xl md:pl-0 pl-4" // Added padding adjustment
+          className="max-w-4xl md:pl-0 pl-4" // Added 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.div
-            className="mb-8 md:-ml-1" // Added negative margin to move left
+            className="mb-8 md:-ml-1" 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <span className="text-[#BF9B30] text-xl font-medium tracking-wider block">Welcome to</span>
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mt-2 md:-ml-2"> {/* Added negative margin */}
-              Freedom to Live
-            </h1>
+            
+            {/* BlurText Component for Freedom to Live */}
+            <BlurText
+              text="Freedom to Live"
+              delay={200}
+              className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mt-2 md:-ml-2"
+              animateBy="words"
+              direction="top"
+              stepDuration={0.35}
+            />
           </motion.div>
           
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold mb-6 leading-tight md:-ml-1" // Added negative margin
+            className="text-4xl md:text-5xl font-bold mb-6 leading-tight md:-ml-1" 
           >
             <motion.span 
               className="bg-gradient-to-r from-[#BF9B30] to-[#D4AF37] bg-clip-text text-transparent"

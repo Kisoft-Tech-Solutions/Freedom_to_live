@@ -1,6 +1,5 @@
 "use client";
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,7 +10,9 @@ export default function Header() {
   const navItems = [
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Pricing', href: '/pricing' }
+    { name: 'Business Divisions', href: '/business-divisions' },
+    { name: 'Leadership', href: '/leadership' },
+    { name: 'Investment', href: '/investment' },
   ];
 
   return (
