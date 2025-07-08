@@ -1,8 +1,9 @@
 "use client";
 
 import Image from 'next/image';
-import { motion, useInView, animate } from 'framer-motion'; // Changed imports
+import { motion, useInView, animate } from 'framer-motion'; 
 import { useRef, useEffect } from 'react';
+import YouTubeEmbed from './BoardVideo'; 
 
 function Counter({ value, duration = 2 }) {
   const ref = useRef(null);
@@ -181,7 +182,7 @@ export default function BoardMembers() {
           ))}
         </motion.div>
 
-        {/* Updated Stats Section */}
+        {/* Stats Section */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -204,6 +205,22 @@ export default function BoardMembers() {
               <p className="text-gray-300">{stat.label}</p>
             </div>
           ))}
+        </motion.div>
+
+        {/* Video Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-24"
+        >
+          <h2 className="text-3xl font-bold text-center mb-8">
+            <span className="text-white">Hear us from our </span>
+            <span className="text-[#BF9B30]">Board Members</span>
+          </h2>
+          <div className="max-w-4xl mx-auto">
+            <YouTubeEmbed />
+          </div>
         </motion.div>
       </div>
     </section>
