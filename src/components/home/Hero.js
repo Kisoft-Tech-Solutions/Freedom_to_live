@@ -7,7 +7,6 @@ import BlurText from '../style/BlurText';
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background remains the same */}
       <motion.div 
         className="absolute inset-0 z-0"
         initial={{ opacity: 0 }}
