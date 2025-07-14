@@ -40,25 +40,25 @@ export default function BoardMembers() {
     {
       name: "def",
       position: "def",
-      image: "/def.jpg",
+      image: "/logo.jpeg",
       description: "def"
     },
     {
       name: "ghi",
       position: "ghi", 
-      image: "/ghi.jpg",
+      image: "/logo.jpeg",
       description: "ghi"
     },
     {
       name: "abc",
       position: "abc",
-      image: "/abc.jpg", 
+      image: "/logo.jpeg", 
       description: "bcd"
     },
     {
       name: "bcd",
       position: "bcd",
-      image: "/bcd.jpg",
+      image: "/logo.jpeg",
       description: "bcd"
     }
   ];
@@ -67,7 +67,10 @@ export default function BoardMembers() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.3 }
+      transition: { 
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
     }
   };
 
@@ -87,6 +90,15 @@ export default function BoardMembers() {
         damping: 15,
         mass: 1
       }
+    },
+    hover: {
+      y: -15,
+      scale: 1.02,
+      transition: { 
+        type: "spring", 
+        stiffness: 300,
+        damping: 20
+      }
     }
   };
 
@@ -99,22 +111,71 @@ export default function BoardMembers() {
         duration: 0.8,
         ease: "easeOut"
       }
+    },
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const statsVariants = {
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        mass: 1,
+        staggerChildren: 0.2
+      }
+    },
+    hover: {
+      scale: 1.05,
+      y: -5,
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 15
+      }
+    }
+  };
+
+  const videoSectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+        mass: 1
+      }
     }
   };
 
   return (
     <section ref={ref} className="bg-[#0B1340] py-24 relative overflow-hidden">
-      {/* Background Animation */}
+      {/* Background Animation with enhanced gradient */}
       <motion.div 
         className="absolute top-0 left-0 w-full h-full opacity-10"
         animate={{ 
           background: [
             "radial-gradient(circle at 0% 0%, #BF9B30 0%, transparent 50%)",
             "radial-gradient(circle at 100% 100%, #BF9B30 0%, transparent 50%)",
+            "radial-gradient(circle at 50% 50%, #BF9B30 0%, transparent 50%)",
+            "radial-gradient(circle at 0% 100%, #BF9B30 0%, transparent 50%)",
+            "radial-gradient(circle at 100% 0%, #BF9B30 0%, transparent 50%)",
             "radial-gradient(circle at 0% 0%, #BF9B30 0%, transparent 50%)"
           ]
         }}
-        transition={{ duration: 10, repeat: Infinity }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -134,6 +195,7 @@ export default function BoardMembers() {
           </p>
         </motion.div>
 
+        {/* Board Members Grid with Enhanced Animations */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -144,12 +206,8 @@ export default function BoardMembers() {
             <motion.div
               key={member.name}
               variants={memberVariants}
-              whileHover={{ 
-                y: -15,
-                scale: 1.02,
-                transition: { type: "spring", stiffness: 300 }
-              }}
-              className="bg-[#0B1340]/50 rounded-xl border border-[#BF9B30]/20 overflow-hidden hover:border-[#BF9B30] transition-all duration-300 shadow-lg group"
+              whileHover="hover"
+              className="bg-[#0B1340]/50 rounded-xl border border-[#BF9B30]/20 overflow-hidden hover:border-[#BF9B30] transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-[#BF9B30]/20 group"
             >
               <motion.div 
                 className="relative h-64 w-full overflow-hidden"
@@ -182,11 +240,11 @@ export default function BoardMembers() {
           ))}
         </motion.div>
 
-        {/* Stats Section */}
+        {/* Stats Section with Enhanced Animations */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20"
         >
           {[
@@ -195,32 +253,44 @@ export default function BoardMembers() {
             { number: "100+", label: "Satisfied Clients" },
             { number: "$5M+", label: "Total Invested" }
           ].map((stat, index) => (
-            <div
+            <motion.div
               key={index}
-              className="p-6 rounded-lg border border-[#BF9B30]/20 bg-[#0B1340]/50 backdrop-blur-sm"
+              variants={statsVariants}
+              whileHover="hover"
+              className="p-6 rounded-lg border border-[#BF9B30]/20 bg-[#0B1340]/50 backdrop-blur-sm hover:border-[#BF9B30]/40 hover:shadow-lg hover:shadow-[#BF9B30]/10 transition-all duration-300"
             >
               <h4 className="text-[#BF9B30] text-3xl font-bold mb-2">
                 <Counter value={stat.number} />
               </h4>
               <p className="text-gray-300">{stat.label}</p>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
 
-        {/* Video Section */}
+        {/* Video Section with Enhanced Animations */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          variants={videoSectionVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
           className="mt-24"
         >
-          <h2 className="text-3xl font-bold text-center mb-8">
+          <motion.h2 
+            className="text-3xl font-bold text-center mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <span className="text-white">Hear us from our </span>
             <span className="text-[#BF9B30]">Board Members</span>
-          </h2>
-          <div className="max-w-4xl mx-auto">
+          </motion.h2>
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
             <YouTubeEmbed />
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
