@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // Add this import
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -27,15 +28,20 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="group">
-            <motion.span 
-              className="text-5xl font-extrabold tracking-wider"
+            <motion.div 
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
+              className="relative w-60 h-200" 
             >
-              <span className="bg-gradient-to-r from-[#BF9B30] to-[#D4AF37] bg-clip-text text-transparent">
-                FTL
-              </span>
-            </motion.span>
+              <Image
+                src="/bg_logo.png"
+                alt="FTL Logo"
+                contain="True"
+                fill
+                className="object-contain"
+                priority
+              />
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
