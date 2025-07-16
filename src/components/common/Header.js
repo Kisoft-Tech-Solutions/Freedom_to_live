@@ -98,13 +98,6 @@ export default function Header() {
                     </Link>
                   </motion.div>
                 ))}
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-[#BF9B30] text-[#0B1340] px-6 py-2 rounded-full font-medium hover:bg-[#D4AF37] transition-colors"
-                >
-                  Get Started
-                </motion.button>
               </nav>
             </motion.div>
           )}
